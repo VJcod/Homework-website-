@@ -42,27 +42,24 @@
 
             <form id="aquariumForm" class="form">
                 <div class="input-group">
-                    <label for="length">
-                        <span class="label-text">Длина (см)</span>
-                        <span class="icon">📏</span>
+                    <label for="shape">
+                        <span class="label-text">Форма аквариума</span>
+                        <span class="icon">🔷</span>
                     </label>
-                    <input type="number" id="length" placeholder="Введите длину" min="0" step="0.1" required>
+                    <select id="shape" class="shape-select" required>
+                        <option value="rectangular">Прямоугольный</option>
+                        <option value="round">Круглый</option>
+                        <option value="corner">Угловой (треугольный)</option>
+                        <option value="cylinder">Цилиндр</option>
+                    </select>
                 </div>
 
-                <div class="input-group">
-                    <label for="width">
-                        <span class="label-text">Ширина (см)</span>
-                        <span class="icon">📏</span>
-                    </label>
-                    <input type="number" id="width" placeholder="Введите ширину" min="0" step="0.1" required>
+                <div id="shapeVisualization" class="shape-visualization">
+                    <!-- SVG изображения будут добавлены через JavaScript -->
                 </div>
 
-                <div class="input-group">
-                    <label for="height">
-                        <span class="label-text">Высота (см)</span>
-                        <span class="icon">📏</span>
-                    </label>
-                    <input type="number" id="height" placeholder="Введите высоту" min="0" step="0.1" required>
+                <div id="inputFields" class="dynamic-inputs">
+                    <!-- Поля ввода будут добавляться динамически -->
                 </div>
 
                 <button type="submit" class="calculate-btn">
