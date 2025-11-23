@@ -305,6 +305,27 @@ document.getElementById('aquariumForm').addEventListener('submit', function(e) {
     const recommendation = getRecommendation(volumeLiters);
     document.getElementById('recommendation').textContent = recommendation;
 
+    // Получаем и отображаем рекомендации по рыбкам
+    const fishRecommendations = getFishRecommendations(volumeLiters);
+    const fishRecommendationsContainer = document.getElementById('fishRecommendations');
+    fishRecommendationsContainer.innerHTML = '';
+
+    fishRecommendations.forEach(rec => {
+        const fishOption = document.createElement('div');
+        fishOption.className = 'fish-option';
+        fishOption.innerHTML = `
+            <div class="fish-option-header">
+                <span class="fish-icon-small">🐠</span>
+                <span class="fish-size">Размер взрослой особи: ${rec.size} см</span>
+            </div>
+            <div class="fish-option-body">
+                <div class="fish-count">До ${rec.count} рыбок</div>
+                <div class="fish-examples">${rec.examples}</div>
+            </div>
+        `;
+        fishRecommendationsContainer.appendChild(fishOption);
+    });
+
     document.getElementById('result').classList.remove('hidden');
 
     document.getElementById('result').scrollIntoView({
@@ -329,4 +350,53 @@ function getRecommendation(liters) {
     } else {
         return 'Огромный аквариум! Возможности безграничны!';
     }
+}
+
+function getFishRecommendations(liters) {
+    const recommendations = [];
+
+    // Правило: 2.5 литра воды на 1 см длины тела рыбы
+    // Добавляем варианты для разных размеров рыбок
+
+    if (liters >= 5) {
+        // Маленькие рыбки (2-3 см, средний размер 2.5 см)
+        const smallFishCount = Math.floor(liters / (2.5 * 2.5));
+        recommendations.push({
+            size: '2-3',
+            count: smallFishCount,
+            examples: 'Неоны, гуппи, данио-рерио'
+        });
+    }
+
+    if (liters >= 20) {
+        // Средние рыбки (5-7 см, средний размер 6 см)
+        const mediumFishCount = Math.floor(liters / (2.5 * 6));
+        recommendations.push({
+            size: '5-7',
+            count: mediumFishCount,
+            examples: 'Моллинезии, меченосцы, барбусы'
+        });
+    }
+
+    if (liters >= 50) {
+        // Крупные рыбки (10-12 см, средний размер 11 см)
+        const largeFishCount = Math.floor(liters / (2.5 * 11));
+        recommendations.push({
+            size: '10-12',
+            count: largeFishCount,
+            examples: 'Скалярии, гурами, золотые рыбки'
+        });
+    }
+
+    if (liters >= 150) {
+        // Очень крупные рыбки (15-20 см, средний размер 17.5 см)
+        const veryLargeFishCount = Math.floor(liters / (2.5 * 17.5));
+        recommendations.push({
+            size: '15-20',
+            count: veryLargeFishCount,
+            examples: 'Цихлиды, крупные сомы'
+        });
+    }
+
+    return recommendations;
 }

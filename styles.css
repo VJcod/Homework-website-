@@ -446,6 +446,77 @@ h1 {
     margin: 0;
 }
 
+.fish-count-recommendation {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f8fb 0%, #e8f4f8 100%);
+    border-radius: 15px;
+    border: 2px solid #d4eaf2;
+}
+
+.fish-count-recommendation h3 {
+    color: #1a4d6d;
+    font-size: 18px;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.fish-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fish-option {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    border: 2px solid #d4eaf2;
+    transition: all 0.3s ease;
+}
+
+.fish-option:hover {
+    border-color: #5fa8c7;
+    box-shadow: 0 3px 10px rgba(45, 106, 143, 0.15);
+    transform: translateX(5px);
+}
+
+.fish-option-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.fish-icon-small {
+    font-size: 20px;
+}
+
+.fish-size {
+    color: #2d6a8f;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.fish-option-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 30px;
+}
+
+.fish-count {
+    color: #1a4d6d;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.fish-examples {
+    color: #5fa8c7;
+    font-size: 13px;
+    font-style: italic;
+}
+
 .footer {
     text-align: center;
     padding: 20px;
