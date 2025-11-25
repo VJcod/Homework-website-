@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Измерения параметров аквариума</title>
+    <link rel="stylesheet" href="measurements-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📊 Журнал измерений аквариума</h1>
+            <p>Отслеживайте параметры воды для здоровья ваших рыбок</p>
+        </header>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">🐠 Калькулятор объема</a>
+            <a href="measurements.html" class="nav-link active">📊 Измерения</a>
+        </nav>
+
+        <div class="measurements-card">
+            <h2>Новое измерение</h2>
+
+            <form id="measurementForm">
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="measurementDatetime">
+                            <span class="icon">📅</span>
+                            Дата и время измерения
+                        </label>
+                        <input
+                            type="datetime-local"
+                            id="measurementDatetime"
+                            name="measurementDatetime"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>🌡️ Основные параметры</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="temperature">Температура (°C)</label>
+                            <input
+                                type="number"
+                                id="temperature"
+                                name="temperature"
+                                step="0.1"
+                                min="0"
+                                max="50"
+                                placeholder="25.0"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="ph">Кислотность (pH)</label>
+                            <input
+                                type="number"
+                                id="ph"
+                                name="ph"
+                                step="0.1"
+                                min="0"
+                                max="14"
+                                placeholder="7.0"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>💎 Жесткость</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="generalHardness">Общая жесткость (°dGH)</label>
+                            <input
+                                type="number"
+                                id="generalHardness"
+                                name="generalHardness"
+                                step="0.1"
+                                min="0"
+                                placeholder="8.0"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="carbonateHardness">Карбонатная жесткость (°dKH)</label>
+                            <input
+                                type="number"
+                                id="carbonateHardness"
+                                name="carbonateHardness"
+                                step="0.1"
+                                min="0"
+                                placeholder="5.0"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>⚠️ Азотистые соединения</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ammonia">Аммиак/Аммоний (мг/л)</label>
+                            <input
+                                type="number"
+                                id="ammonia"
+                                name="ammonia"
+                                step="0.01"
+                                min="0"
+                                placeholder="0.00"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="nitrites">Нитриты (мг/л)</label>
+                            <input
+                                type="number"
+                                id="nitrites"
+                                name="nitrites"
+                                step="0.01"
+                                min="0"
+                                placeholder="0.00"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="nitrates">Нитраты (мг/л)</label>
+                            <input
+                                type="number"
+                                id="nitrates"
+                                name="nitrates"
+                                step="0.01"
+                                min="0"
+                                placeholder="5.00"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>🔬 Микроэлементы и газы</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phosphates">Фосфаты (мг/л)</label>
+                            <input
+                                type="number"
+                                id="phosphates"
+                                name="phosphates"
+                                step="0.01"
+                                min="0"
+                                placeholder="0.50"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="co2">Углекислый газ CO₂ (мг/л)</label>
+                            <input
+                                type="number"
+                                id="co2"
+                                name="co2"
+                                step="0.1"
+                                min="0"
+                                placeholder="20.0"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="calcium">Кальций (мг/л)</label>
+                            <input
+                                type="number"
+                                id="calcium"
+                                name="calcium"
+                                step="0.1"
+                                min="0"
+                                placeholder="50.0"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="iron">Железо (мг/л)</label>
+                            <input
+                                type="number"
+                                id="iron"
+                                name="iron"
+                                step="0.001"
+                                min="0"
+                                placeholder="0.100"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        💾 Сохранить запись
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="viewHistoryBtn">
+                        📋 Посмотреть историю
+                    </button>
+                    <button type="reset" class="btn btn-tertiary">
+                        🔄 Очистить форму
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно с историей -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📋 История измерений</h2>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="historyContainer">
+                    <p class="loading">Загрузка данных...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <footer class="footer">
+        <p>🐠 Здоровые параметры = здоровые рыбки 🐡</p>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Config -->
+    <script src="config.js"></script>
+    <!-- Main Script -->
+    <script src="measurements-script.js"></script>
+</body>
+</html>
